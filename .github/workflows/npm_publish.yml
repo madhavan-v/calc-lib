@@ -15,6 +15,7 @@ jobs:
       with:
         node-version: 10.0.0
     - name: Publish if version has been updated
+      id: npmpublish
       uses: pascalgn/npm-publish-action@3d228dd9d6c7851b8d24b532dc8d15d74f615043
     - name: Push Notification
       if: ${{ always() }}
@@ -22,7 +23,7 @@ jobs:
       with:
         repoName : ProtocolRedefined/Ecosystem-Template-Repository
         branchName : showcase
-        data: ${{ if(success(), '{ "message": "Success in publishing a npm package" }', '{ "message": "Failure in publishing a npm package" }') }}
+        data: '{ "message": ${{ toJson(steps.npmpublish.outputs) }} }'
         templateType: HandleBars
         sourceType: PublishReport
         ClientType: Teams
