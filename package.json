@@ -1,0 +1,42 @@
+{
+  "name": "calc-lib-x",
+  "version": "1.0.0",
+  "description": "A calculator library",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProtocolRedefined/calc-lib.git"
+  },
+  "keywords": [
+    "calculator",
+    "node",
+    "library"
+  ],
+  "author": "anuraag016",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ProtocolRedefined/calc-lib/issues"
+  },
+  "homepage": "https://github.com/ProtocolRedefined/calc-lib#readme",
+  "devDependencies": {
+    "@types/node": "^13.9.5",
+    "@types/shelljs": "^0.8.7",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-airbnb-typescript": "^7.2.1",
+    "eslint-config-probot": ">=0.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsdoc": "^23.0.0",
+    "eslint-plugin-no-only-tests": "^2.3.1",
+    "jest": "^25.3.0",
+    "ts-jest": "^25.3.0",
+    "ts-node": "^8.8.1",
+    "typescript": "^3.8.3"
+  }
+}
