@@ -17,11 +17,12 @@ jobs:
     - name: Publish if version has been updated
       uses: pascalgn/npm-publish-action@3d228dd9d6c7851b8d24b532dc8d15d74f615043
     - name: Push Notification
+      if: ${{ always() }}
       uses: ProtocolRedefined/Ecosystem@v1
       with:
         repoName : ProtocolRedefined/Ecosystem-Template-Repository
         branchName : showcase
-        data: '{ "message": "Success or failure based on the run" }'
+        data: ${{ if(success(), '{ "message": "Success in publishing a npm package" }', '{ "message": "Failure in publishing a npm package" }') }}
         templateType: HandleBars
         sourceType: PublishReport
         ClientType: Teams
