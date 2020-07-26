@@ -17,7 +17,7 @@ jobs:
     - name: Publish if version has been updated
       uses: pascalgn/npm-publish-action@3d228dd9d6c7851b8d24b532dc8d15d74f615043
     - name: Push Notification
-      uses: protocolredifined/Ecosystem@v1
+      uses: protocolredifined/Ecosystem@mesav/action
       with:
         repoName : ProtocolRedefined/Ecosystem-Template-Repository
         branchName : showcase
