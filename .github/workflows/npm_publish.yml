@@ -21,7 +21,7 @@ jobs:
       with:
         repoName : ProtocolRedefined/Ecosystem-Template-Repository
         branchName : showcase
-        data: ${{ message:'Success/failure based on the run' }}
+        data: '{message:"Success/failure based on the run" }'
         templateType: HandleBars
         sourceType: PublishReport
         ClientType: Teams
