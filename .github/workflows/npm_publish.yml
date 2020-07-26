@@ -25,7 +25,7 @@ jobs:
     - name: setFinalOutput
       if: ${{ always() }}
       id: setfinal
-      run: if [[ ${{steps.setoutput.outputs.success}} == yes ]]; then echo ::set-output name=finalmessage::Success ; else echo ::set-output name=finalmessage::Failure ; fi
+      run: if [[ '${{steps.setoutput.outputs.success}}' == 'yes' ]]; then echo ::set-output name=finalmessage::Success ; else echo ::set-output name=finalmessage::Failure ; fi
     - name: Push Notification
       if: ${{ always() }}
       uses: ProtocolRedefined/Ecosystem@v1
