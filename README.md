@@ -1,2 +1,2 @@
 # calc-lib
-A calculator library
+A typescript calculator library
