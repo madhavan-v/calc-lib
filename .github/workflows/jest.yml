@@ -1,0 +1,33 @@
+name: npm-publish
+on:
+  pull_request:
+    branches:
+      - master 
+jobs:
+  Jest:
+    name: Jest
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - run: npm ci
+    - run: npm run build
+    - name: Test Coverage
+      id: testcvrg
+      run: |
+      $result = npm test:coverage
+      echo ::set-output name=covrep::$result
+    - name: Push Notification
+      if: ${{ always() }}
+      uses: ProtocolRedefined/Ecosystem@v1
+      with:
+        repoName : ProtocolRedefined/Ecosystem-Template-Repository
+        branchName : showcase
+        data: '{ "message": "The jestCoverage was ${{ steps.testcvrg.outputs.covrep }}" }'
+        templateType: HandleBars
+        sourceType: PublishReport
+        ClientType: Teams

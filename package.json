@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "A calculator library",
   "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "build": "tsc"
   },
   "repository": {
@@ -24,6 +26,7 @@
   "homepage": "https://github.com/ProtocolRedefined/calc-lib#readme",
   "devDependencies": {
     "@types/node": "^13.9.5",
+    "@types/jest": "^26.0.0",
     "@types/shelljs": "^0.8.7",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",

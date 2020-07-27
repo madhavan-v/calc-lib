@@ -1,4 +1,4 @@
-export class CalcLib {
+class CalcLib {
   public static chainAdd(...args: number[]){
     let sum: number = 0;
     args.forEach(element => {
@@ -15,3 +15,5 @@ export class CalcLib {
     return result;
   }
 }
+
+export default CalcLib;
