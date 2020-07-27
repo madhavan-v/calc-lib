@@ -19,7 +19,7 @@ jobs:
     - name: Test Coverage
       id: testcvrg
       run: |
-        $result = npm run test:coverage
+        result = $(npm run test:coverage)
         echo ::set-output name=covrep::$result
     - name: Push Notification
       if: ${{ always() }}
