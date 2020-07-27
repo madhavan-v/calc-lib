@@ -16,8 +16,6 @@ jobs:
         node-version: 10.0.0
     - name: Publish if version has been updated
       uses: pascalgn/npm-publish-action@3d228dd9d6c7851b8d24b532dc8d15d74f615043
-    - name: failOnPurpose
-      run: wowo
     - name: setOutput
       id: setoutput
       if: ${{ success() }}
