@@ -1,0 +1,39 @@
+on: [push]
+
+name: IssueTrackerJira
+
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Fetch Issues
+        id: issues
+        run: echo ::set-output name=allissues::curl -sb -D- -u ${{ secrets.JIRA_TOKEN }}  -X GET -H "Content-Type: application/json"  https://anpuri.atlassian.net/rest/api/2/search
+      - name: Check outputs
+        id: checkoutput
+        run: echo '${{ steps.issues.outputs.allissues}}'
+      - name: Convert Data
+        id: convertdata
+        uses: ProtocolRedefined/Ecosystem@mesav/demoAction
+        with:
+          repoName: ProtocolRedefined/Ecosystem-Template-Repository
+          branch: showcase
+          data: ${{ steps.issues.outputs.allissues }}
+          templateType: HandleBars
+          sourceType: JiraIssue
+      - name: Push Notification
+        uses: ProtocolRedefined/Ecosystem@mesav/demoAction
+        with:
+          repoName: ProtocolRedefined/Ecosystem-Template-Repository
+          branch: showcase
+          data: ${{ steps.convertdata.outputs.renderedTemplate }}
+          templateType: HandleBars
+          sourceType: IssueTracker
+          ClientType: Teams
