@@ -15,7 +15,7 @@ jobs:
 
       - name: Fetch Issues
         id: issues
-        run: echo ::set-output name=allissues::$(curl -sb -D- -u ${{secrets.JIRA_TOKEN}} -X GET -H "Content-Type:application/json" https://anpuri.atlassian.net/rest/api/2/search)
+        run: echo ::set-output name=allissues::$(curl -sb -D- --user ${{secrets.JIRA_TOKEN}} -X GET -H "Content-Type:application/json" https://anpuri.atlassian.net/rest/api/2/search)
       - name: Check outputs
         id: checkoutput
         run: echo '${{ steps.issues.outputs.allissues}}'
