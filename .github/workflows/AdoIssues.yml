@@ -1,6 +1,6 @@
 on: [push]
 
-name: IssueTrackerJira
+name: IssueTrackerADO
 
 jobs:
   # This workflow contains a single job called "build"
