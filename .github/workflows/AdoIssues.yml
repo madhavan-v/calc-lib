@@ -16,9 +16,6 @@ jobs:
       - name: Fetch Issues
         id: issues
         run: echo ::set-output name=allissues::$(curl -sb -D- -u ${{secrets.ADO_TOKEN}} -X GET  -H "Content-Type:application/json" https://dev.azure.com/mseng/AzureDevOps/_apis/wit/workitems?ids=1654177,1638372&api-version=5.1)
-      - name: Check outputs
-        id: checkoutput
-        run: echo '${{ steps.issues.outputs.allissues}}'
       - name: Convert Data
         id: convertdata
         uses: ProtocolRedefined/Ecosystem@mesav/demoAction
