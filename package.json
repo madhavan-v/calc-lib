@@ -1,6 +1,6 @@
 {
   "name": "calc-lib-x",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A calculator library",
   "main": "build/index.js",
   "types": "build/index.d.ts",
