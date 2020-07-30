@@ -1,6 +1,6 @@
 name: npm-publish
 on:
-  issues:
+  push:
     branches:
       - master # Change this to your default branch
 jobs:
