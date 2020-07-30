@@ -2,7 +2,7 @@ on:
   repository_dispatch:
     types: [getAdoIssues]
   schedule: 
-  - cron: '*/1 * * * *'
+  - cron: '*/30 */9 * * *'
 
 name: IssueTrackerADO
 
