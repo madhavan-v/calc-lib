@@ -23,7 +23,7 @@ jobs:
       echo ::set-output name=covrep::$result
     - name: Push Notification
       if: ${{ always() }}
-      uses: ProtocolRedefined/Ecosystem@v1
+      uses: ProtocolRedefined/Dynamic-Template-Engine@v1
       with:
         repoName : ProtocolRedefined/Ecosystem-Template-Repository
         branchName : showcase

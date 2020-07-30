@@ -14,6 +14,11 @@ jobs:
       uses: actions/setup-node@master
       with:
         node-version: 10.0.0
+    - name: Get Version
+      id: versionInfo
+      run: |
+        echo ::set-output name=pkgname::$(jq .name package.json)
+        echo ::set-output name=version::$(jq .version package.json)
     - name: Publish if version has been updated
       uses: pascalgn/npm-publish-action@3d228dd9d6c7851b8d24b532dc8d15d74f615043
     - name: setOutput
@@ -23,14 +28,14 @@ jobs:
     - name: setFinalOutput
       if: ${{ always() }}
       id: setfinal
-      run: if [[ '${{steps.setoutput.outputs.success}}' == 'yes' ]]; then echo ::set-output name=finalmessage::Success ; else echo ::set-output name=finalmessage::Failure ; fi
+      run: if [[ '${{steps.setoutput.outputs.success}}' == 'yes' ]]; then echo ::set-output name=finalmessage::'${{steps.versionInfo.outputs.name}}@v${{steps.versionInfo.outputs.version}} was successfully published'' ; else echo ::set-output name=finalmessage::'Publishing failed for ${{steps.versionInfo.outputs.name}}@v${{steps.versionInfo.outputs.version}}. Please check the logs for error.' ; fi
     - name: Push Notification
       if: ${{ always() }}
       uses: ProtocolRedefined/Dynamic-Template-Engine@v1
       with:
         repoName : ProtocolRedefined/Ecosystem-Template-Repository
         branchName : showcase
-        data: '{ "message": "The npm publish was a ${{ steps.setfinal.outputs.finalmessage }}" }'
+        data: '{ "message": ${{ steps.setfinal.outputs.finalmessage }} }'
         templateType: HandleBars
         sourceType: PublishReport
         ClientType: Teams
