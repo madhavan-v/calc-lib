@@ -28,14 +28,14 @@ jobs:
     - name: setFinalOutput
       if: ${{ always() }}
       id: setfinal
-      run: if [[ '${{steps.setoutput.outputs.success}}' == 'yes' ]]; then echo ::set-output name=finalmessage::'${{steps.versionInfo.outputs.pkgname}}@v${{steps.versionInfo.outputs.version}} was successfully published' ; else echo ::set-output name=finalmessage::'Publishing failed for ${{steps.versionInfo.outputs.pkgname}}@v${{steps.versionInfo.outputs.version}}. Please check the logs for error.' ; fi
+      run: if [[ '${{steps.setoutput.outputs.success}}' == 'yes' ]]; then echo ::set-output name=finalmessage::'Node packaged ${{steps.versionInfo.outputs.pkgname}}@v${{steps.versionInfo.outputs.version}} was successfully published' ; else echo ::set-output name=finalmessage::'Publishing of node package failed for ${{steps.versionInfo.outputs.pkgname}}@v${{steps.versionInfo.outputs.version}}. Please check the logs for error.' ; fi
     - name: Push Notification
       if: ${{ always() }}
       uses: ProtocolRedefined/Dynamic-Template-Engine@v1
       with:
         repoName : ProtocolRedefined/Ecosystem-Template-Repository
         branchName : showcase
-        data: '{ "message": ${{ steps.setfinal.outputs.finalmessage }} }'
+        data: '{ "message": "${{ steps.setfinal.outputs.finalmessage }}" }'
         templateType: HandleBars
         sourceType: PublishReport
         ClientType: Teams
