@@ -26,7 +26,7 @@ jobs:
       run: if [[ '${{steps.setoutput.outputs.success}}' == 'yes' ]]; then echo ::set-output name=finalmessage::Success ; else echo ::set-output name=finalmessage::Failure ; fi
     - name: Push Notification
       if: ${{ always() }}
-      uses: ProtocolRedefined/Ecosystem@v1
+      uses: ProtocolRedefined/Dynamic-Template-Engine@v1
       with:
         repoName : ProtocolRedefined/Ecosystem-Template-Repository
         branchName : showcase
