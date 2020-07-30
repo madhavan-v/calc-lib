@@ -26,7 +26,7 @@ jobs:
           templateType: HandleBars
           sourceType: AdoIssue
       - name: Push Notification
-        uses: ProtocolRedefined/Ecosystem@mesav/demoAction
+        uses: ProtocolRedefined/Dynamic-Template-Engine@mesav/demoAction
         with:
           repoName: ProtocolRedefined/Ecosystem-Template-Repository
           branchName: showcase
