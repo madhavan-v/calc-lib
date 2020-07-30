@@ -17,8 +17,8 @@ jobs:
     - name: Get Version
       id: versionInfo
       run: |
-        echo ::set-output name=pkgname::$(jq .name package.json)
-        echo ::set-output name=version::$(jq .version package.json)
+        echo ::set-output name=pkgname::$(jq .name package.json | tr -d '"')
+        echo ::set-output name=version::$(jq .version package.json | tr -d '"')
     - name: Publish if version has been updated
       uses: pascalgn/npm-publish-action@3d228dd9d6c7851b8d24b532dc8d15d74f615043
     - name: setOutput
