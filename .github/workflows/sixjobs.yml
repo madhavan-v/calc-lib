@@ -60,25 +60,25 @@ jobs:
           echo test, and deploy your project.
   deploy:
       # The type of runner that the job will run on
-      runs-on: ubuntu-latest
-      environment:
-        name: prod
+    runs-on: ubuntu-latest
+    environment:
+      name: prod
 
       # Steps represent a sequence of tasks that will be executed as part of the job
-      steps:
-        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        - uses: actions/checkout@v2
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-        # Runs a single command using the runners shell
-        - name: Run a one-line script
-          run: echo Hello, world!
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
 
-        # Runs a set of commands using the runners shell
-        - name: Run a multi-line script
-          run: |
-            echo Add other actions to build,
-            echo test, and deploy your project.
-   build1:
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo "Add other actions to build,"
+          echo "test, and deploy your project."
+  build1:
       # The type of runner that the job will run on
       runs-on: ubuntu-latest
       environment:
@@ -96,8 +96,8 @@ jobs:
         # Runs a set of commands using the runners shell
         - name: Run a multi-line script
           run: |
-            echo Add other actions to build,
-            echo test, and deploy your project.
+            echo "Add other actions to build,"
+            echo "test, and deploy your project."
    build2:
       # The type of runner that the job will run on
       runs-on: ubuntu-latest
@@ -111,13 +111,13 @@ jobs:
 
         # Runs a single command using the runners shell
         - name: Run a one-line script
-          run: ecsho Hello, world!
+          run: echo "Hello, world!"
 
         # Runs a set of commands using the runners shell
         - name: Run a multi-line script
           run: |
-            echo Add other actions to build,
-            echo test, and deploy your project.
+            echo "Add other actions to build,"
+            echo "test, and deploy your project."
     deploy1:
       # The type of runner that the job will run on
       runs-on: ubuntu-latest
@@ -131,10 +131,10 @@ jobs:
 
         # Runs a single command using the runners shell
         - name: Run a one-line script
-          run: echo Hello, world!
+          run: echo "Hello, world!"
 
         # Runs a set of commands using the runners shell
         - name: Run a multi-line script
           run: |
-            echo Add other actions to build,
-            echo test, and deploy your project.
+            echo "Add other actions to build"
+            echo "test, and deploy your project"
