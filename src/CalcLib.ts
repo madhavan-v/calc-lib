@@ -1,3 +1,4 @@
+// test comment
 class CalcLib {
   public static chainAdd(...args: number[]){
     let sum: number = 0;
